@@ -1,0 +1,143 @@
+export type Profile = {
+  id: string;
+  name: string;
+  phone: string;
+  email: string;
+  profession: string;
+  address:string;
+  professionBio: string;
+  openGraphImage?: string;
+  twitterImage?: string;
+  metaImage?:string;
+  metaDescription?: string;
+  welcomeMessage: string;
+  primaryImage: string;
+  secondaryImage: string;
+  socialMedia: SocialMedia[];
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+export type SocialMedia = {
+  id: string;
+  platformName: string;
+  platformLink: string;
+  profileId: string;
+};
+
+export type Portfolio = {
+  id: string;
+  title: string;
+  desc: string;
+  externalLink?: string;
+  react: number;
+  image: string;
+  technology: Technology[];
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+
+export type Technology = {
+  id: string;
+  image: string;
+  porfolioId: string;
+};
+
+export type BlogType = {
+  id: string;
+  title: string;
+  content: string;
+  image: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+export type Gig = {
+  id: string;
+  orderLink?: string;
+  basicId: string;
+  standardId: string;
+  premiumId: string;
+  basic: Package;
+  standard: Package;
+  premium: Package;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+export type Package = {
+  id: string;
+  title: string;
+  desc: string;
+  price: number;
+  features: string[];
+};
+
+type Education = {
+  id: string;
+  degree: string;
+  institution: string;
+  cgpa: number;
+  desc: string;
+  startYear: string;
+  endYear: string;
+  resumeId: string;
+};
+
+type Experience = {
+  id: string;
+  profession: string;
+  company: string;
+  desc: string;
+  technology: string[];
+  resumeId: string;
+};
+
+  export type Resume = {
+  id: string;
+  createdAt: Date;
+  updatedAt: Date;
+  education: Education[];
+  experience: Experience[];
+};
+
+
+export type Service = {
+  id: string;
+  title: string;
+   desc: string;
+  services: string[];
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+
+export type SkillType = {
+  id: string;
+  name: string;
+  skills: Skill[];
+};
+
+ type Skill = {
+  id: string;
+  name: string;
+  desc: string;
+  skillImage: string;
+  skillTypeId: string;
+};
+
+export type Testimonial = {
+  id: string;
+  name: string;
+  authorProfession: string;
+  companyName: string;
+  projectTitle: string;
+  image: String
+  platform: string;
+  message: string;
+  rating: number;
+  startDate: Date;
+  endDate: Date;
+};
+
