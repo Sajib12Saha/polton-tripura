@@ -2,25 +2,42 @@ import { BlogCard } from "@/components/blog-card";
 import { Separator } from "@/components/ui/separator";
 import { BlogType } from "@/types/type";
 import Image from "next/image";
-import { notFound } from "next/navigation";
 import { getBlog } from "@/actions/get-blog";
 import { getBlogs } from "@/actions/get-blogs";
 
-interface BlogPageProps {
-  params: { blogId: string };
+interface ParamsProps {
+  params: Promise<{ blogId: string }>;
 }
 
-const BlogPage = async ({ params }: BlogPageProps) => {
-  const { blogId } = params;
+export default async function BlogIdPage({ params }: ParamsProps) {
+  const { blogId } = await params;
 
-  let blog: BlogType;
+  let blog: BlogType | null = null;
+
   try {
     blog = await getBlog(blogId);
   } catch (err) {
-    return notFound();
+    console.error("Failed to fetch blog:", err);
+    blog = null;
   }
 
-  const { data: blogs } = await getBlogs(1);
+  // Show a beautiful error if no blog is found
+  if (!blog) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center text-center px-4">
+        <h1 className="text-4xl font-bold text-red-600 mb-4">Blog Not Found</h1>
+        <p className="text-lg text-muted-foreground mb-6">
+          We couldn't find the blog you're looking for. It might have been removed or the link is incorrect.
+        </p>
+        <p className="text-sm text-gray-500">
+          Please check the URL or return to the homepage.
+        </p>
+      </div>
+    );
+  }
+
+  const { data: blogs } = await getBlogs(10);
+  const recentBlogs = blogs.filter((b) => b.id !== blogId).slice(0, 3);
 
   const formattedDate = new Date(blog.createdAt).toLocaleDateString("en-US", {
     year: "numeric",
@@ -28,13 +45,8 @@ const BlogPage = async ({ params }: BlogPageProps) => {
     day: "numeric",
   });
 
-  const recentBlogs = blogs
-    .filter((b) => b.id !== blogId)
-    .slice(0, 3);
-
   return (
     <div className="mt-18 flex flex-col lg:flex-row gap-8">
-      {/* Main Blog Content */}
       <div className="flex-1 bg-gradient-to-br from-background to-accent shadow p-4 space-y-8">
         <h1 className="text-3xl md:text-4xl lg:text-5xl dark:text-gray-300 font-bold mt-6">
           {blog.title}
@@ -45,7 +57,7 @@ const BlogPage = async ({ params }: BlogPageProps) => {
 
         <div className="relative w-full h-80">
           <Image
-            src={blog.image}
+            src={blog.image || "/fallback.jpg"}
             alt={blog.title || "Blog Image"}
             fill
             className="rounded-lg object-contain shadow"
@@ -56,11 +68,12 @@ const BlogPage = async ({ params }: BlogPageProps) => {
 
         <div
           className="prose prose-zinc dark:prose-invert text-muted-foreground leading-8 tracking-wide text-lg lg:text-xl"
-          dangerouslySetInnerHTML={{ __html: blog.content }}
+          dangerouslySetInnerHTML={{
+            __html: blog.content || "<p>No content available.</p>",
+          }}
         />
       </div>
 
-      {/* Recent Blogs Section */}
       <aside className="w-full lg:w-[300px] space-y-4">
         <h2 className="text-xl font-semibold pb-2">Recent Blogs</h2>
         <Separator />
@@ -70,6 +83,4 @@ const BlogPage = async ({ params }: BlogPageProps) => {
       </aside>
     </div>
   );
-};
-
-export default BlogPage;
+}
