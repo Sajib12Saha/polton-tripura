@@ -6,11 +6,11 @@ import { notFound } from "next/navigation";
 import { getBlog } from "@/actions/get-blog";
 import { getBlogs } from "@/actions/get-blogs";
 
-interface Props {
+interface BlogPageProps {
   params: { blogId: string };
 }
 
-const BlogPage = async ({ params }: Props) => {
+const BlogPage = async ({ params }: BlogPageProps) => {
   const { blogId } = params;
 
   let blog: BlogType;
@@ -54,7 +54,6 @@ const BlogPage = async ({ params }: Props) => {
           />
         </div>
 
-        {/* Use prose class here for tailwind typography */}
         <div
           className="prose prose-zinc dark:prose-invert text-muted-foreground leading-8 tracking-wide text-lg lg:text-xl"
           dangerouslySetInnerHTML={{ __html: blog.content }}
