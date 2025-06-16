@@ -4,11 +4,11 @@ import { BlogType } from "@/types/type";
 import Link from "next/link";
 
 interface BlogPageProps {
-  searchParams?: Record<string, string | string[] | undefined>;
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
 }
-
 const BlogPage = async ({ searchParams }: BlogPageProps) => {
-  const pageStr = searchParams?.page;
+const params = await searchParams;
+  const pageStr = params?.page;
   const currentPage = Number(Array.isArray(pageStr) ? pageStr[0] : pageStr) || 1;
 
   const { data: blogs, totalPages } = await getBlogs(currentPage);
@@ -31,8 +31,8 @@ const BlogPage = async ({ searchParams }: BlogPageProps) => {
       <div className="flex justify-center items-center gap-4 pt-10">
         <Link
           href={`?page=${currentPage - 1}`}
-          className={`px-4 py-2 shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.8)] dark:shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.16)]  rounded ${
-            currentPage === 1 ? "pointer-events-none opacity-50" : "hover:bg-primary  transition"
+          className={`px-4 py-2 shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.8)] dark:shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.16)] rounded ${
+            currentPage === 1 ? "pointer-events-none opacity-50" : "hover:bg-primary transition"
           }`}
         >
           Previous
@@ -44,8 +44,8 @@ const BlogPage = async ({ searchParams }: BlogPageProps) => {
 
         <Link
           href={`?page=${currentPage + 1}`}
-          className={`px-4 py-2 shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.8)] dark:shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.16)]   rounded ${
-            currentPage >= totalPages ? "pointer-events-none opacity-50" : "hover:bg-primary  transition"
+          className={`px-4 py-2 shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.8)] dark:shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.16)] rounded ${
+            currentPage >= totalPages ? "pointer-events-none opacity-50" : "hover:bg-primary transition"
           }`}
         >
           Next

@@ -34,6 +34,7 @@ export const BlogCard = ({ blog }: Props) => {
     day: "numeric",
   });
 
+  
   return (
     <div>
       <Link href={`/blogs/${id}`}>

@@ -3,13 +3,12 @@ import { PortfolioCard } from "@/components/portfolio-card";
 import Link from "next/link";
 
 interface PortfolioPageProps {
-  searchParams?: {
-    page?: string;
-  };
+  searchParams?: Promise<{ page?: string }>;
 }
 
 const PortfolioPage = async ({ searchParams }: PortfolioPageProps) => {
-  const currentPage = Number( searchParams?.page || 1);
+  const params = await searchParams;
+  const currentPage = Number(params?.page || 1);
   const { data: portfolios, totalPages } = await getPortfolios(currentPage);
 
   return (
@@ -31,7 +30,6 @@ const PortfolioPage = async ({ searchParams }: PortfolioPageProps) => {
         ))}
       </div>
 
-      {/* Pagination Controls */}
       <div className="flex justify-center items-center gap-4 pt-10">
         <Link
           href={`?page=${currentPage - 1}`}
@@ -55,10 +53,7 @@ const PortfolioPage = async ({ searchParams }: PortfolioPageProps) => {
               ? "pointer-events-none opacity-50"
               : "hover:bg-primary  transition"
           }`}
-          
         >
-      
-
           Next
         </Link>
       </div>

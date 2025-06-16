@@ -1,36 +1,30 @@
+import { getBlog } from "@/actions/get-blog";
+import { getBlogs } from "@/actions/get-blogs";
 import { BlogCard } from "@/components/blog-card";
 import { Separator } from "@/components/ui/separator";
 import { BlogType } from "@/types/type";
 import Image from "next/image";
-import { getBlog } from "@/actions/get-blog";
-import { getBlogs } from "@/actions/get-blogs";
 
-interface ParamsProps {
+interface BlogIdPageProps {
   params: Promise<{ blogId: string }>;
 }
 
-export default async function BlogIdPage({ params }: ParamsProps) {
+export default async function BlogIdPage({ params }: BlogIdPageProps) {
   const { blogId } = await params;
 
   let blog: BlogType | null = null;
-
   try {
     blog = await getBlog(blogId);
-  } catch (err) {
-    console.error("Failed to fetch blog:", err);
+  } catch {
     blog = null;
   }
 
-  // Show a beautiful error if no blog is found
   if (!blog) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center text-center px-4">
         <h1 className="text-4xl font-bold text-red-600 mb-4">Blog Not Found</h1>
         <p className="text-lg text-muted-foreground mb-6">
-          We couldn't find the blog you're looking for. It might have been removed or the link is incorrect.
-        </p>
-        <p className="text-sm text-gray-500">
-          Please check the URL or return to the homepage.
+          We couldn't find the blog you're looking for.
         </p>
       </div>
     );
