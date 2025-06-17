@@ -16,10 +16,10 @@ interface Props {
 export const HeroSection = ({name,profession,primaryImage,professionBio,secondaryImage, welcomeMessage}:Props) => {
   return (
     <section id="home" className="px-4 py-10 sm:py-16 md:py-20 lg:py-24">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-center max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center max-w-7xl mx-auto">
         {/* Text Section */}
         <div 
-        className="order-2 md:order-1 md:col-span-7 space-y-6"
+        className="order-2 md:order-1 lg:col-span-7 space-y-6"
          
         >
           <motion.p className="text-xl font-semibold tracking-widest md:text-2xl dark:text-gray-300"
@@ -48,7 +48,7 @@ export const HeroSection = ({name,profession,primaryImage,professionBio,secondar
         </div>
 
         {/* Image Section */}
-        <motion.div className="relative order-1 md:order-2 md:col-span-5 flex justify-center"
+        <motion.div className="relative order-1 md:order-2 lg:col-span-5 flex justify-center"
            initial={{opacity:0, y: -100}}
            whileInView={{opacity:1, y: 0}}
            transition={{duration:1, delay:0.4, ease:"easeIn"}}
