@@ -142,3 +142,16 @@
 .prose li {
   margin-bottom: 0.25rem;
 }
+
+.prose {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.prose pre {
+  overflow-x: auto;
+  padding: 1rem;
+  background-color: #f3f4f6; /* or dark variant */
+  border-radius: 0.5rem;
+  white-space: pre-wrap; /* wrap long code lines */
+}

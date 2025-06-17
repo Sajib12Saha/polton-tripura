@@ -60,12 +60,16 @@ export default async function BlogIdPage({ params }: BlogIdPageProps) {
           />
         </div>
 
-        <div
-          className="prose prose-zinc dark:prose-invert text-muted-foreground leading-8 tracking-wide text-lg lg:text-xl"
-          dangerouslySetInnerHTML={{
-            __html: blog.content || "<p>No content available.</p>",
-          }}
-        />
+   <div
+  className="prose prose-zinc dark:prose-invert text-muted-foreground text-lg lg:text-xl leading-8 tracking-wide 
+             break-words prose-img:max-w-full prose-img:rounded-lg 
+             prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:rounded-md 
+             prose-table:w-full prose-th:break-words prose-td:break-words"
+  dangerouslySetInnerHTML={{
+    __html: blog.content || "<p>No content available.</p>",
+  }}
+/>
+
       </div>
 
       <aside className="w-full lg:w-[300px] space-y-4">
