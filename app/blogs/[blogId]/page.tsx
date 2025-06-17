@@ -72,13 +72,16 @@ export default async function BlogIdPage({ params }: BlogIdPageProps) {
 
       </div>
 
-      <aside className="w-full lg:w-[300px] space-y-4">
+{recentBlogs.length > 0 && (
+ <aside className="w-full lg:w-[300px] space-y-4">
         <h2 className="text-xl font-semibold pb-2">Recent Blogs</h2>
         <Separator />
         {recentBlogs.map((recent) => (
           <BlogCard key={recent.id} blog={recent} />
         ))}
       </aside>
+)}
+     
     </div>
   );
 }
