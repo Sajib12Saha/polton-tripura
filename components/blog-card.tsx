@@ -49,14 +49,14 @@ export const BlogCard = ({ blog }: Props) => {
           </div>
 
           <div className="flex items-center justify-between w-full mt-2">
-            <h4 className="text-base md:text-lg font-semibold truncate max-w-[70%] dark:text-gray-300">
+            <h4 className="text-lg md:text-xl font-semibold truncate max-w-[70%] dark:text-gray-300">
               {title}
             </h4>
             <span className="text-sm text-muted-foreground whitespace-nowrap">{formattedDate}</span>
           </div>
 
           <p
-            className="text-sm text-muted-foreground line-clamp-3"
+            className="text-sm md:text-base text-muted-foreground line-clamp-3"
             dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(previewText) }}
           />
         </CardContent>

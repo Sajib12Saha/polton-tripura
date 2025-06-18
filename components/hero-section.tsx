@@ -38,7 +38,7 @@ export const HeroSection = ({name,profession,primaryImage,professionBio,secondar
             a {profession}
           </h3>
 
-          <motion.p className="text-base md:text-lg text-muted-foreground"
+          <motion.p className="text-lg md:text-xl text-muted-foreground"
             initial={{opacity:0, x: -100}}
             whileInView={{opacity:1, x: 0}}
             transition={{duration:1, delay:0.4, ease:"easeIn"}}

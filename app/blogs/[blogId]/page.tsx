@@ -30,7 +30,7 @@ export default async function BlogIdPage({ params }: BlogIdPageProps) {
     );
   }
 
-  const { data: blogs } = await getBlogs(10);
+  const { data: blogs = [] } = await getBlogs(1);
   const recentBlogs = blogs.filter((b) => b.id !== blogId).slice(0, 3);
 
   const formattedDate = new Date(blog.createdAt).toLocaleDateString("en-US", {
@@ -40,11 +40,13 @@ export default async function BlogIdPage({ params }: BlogIdPageProps) {
   });
 
   return (
-    <div className="mt-18 flex flex-col lg:flex-row gap-8">
+    <div className="max-w-6xl mx-auto px-4 mt-16 flex flex-col lg:flex-row gap-8">
+      {/* Main Blog Content */}
       <div className="flex-1 bg-gradient-to-br from-background to-accent shadow p-4 space-y-8">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl dark:text-gray-300 font-bold mt-6 break-words leading-8 tracking-wide ">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl dark:text-gray-300 font-bold mt-6 break-words leading-8 tracking-wide">
           {blog.title}
         </h1>
+
         <p className="text-sm lg:text-base font-semibold text-muted-foreground">
           {formattedDate}
         </p>
@@ -60,28 +62,27 @@ export default async function BlogIdPage({ params }: BlogIdPageProps) {
           />
         </div>
 
-   <div
-  className="prose prose-zinc dark:prose-invert text-muted-foreground text-lg lg:text-xl leading-8 tracking-wide 
-             break-words prose-img:max-w-full prose-img:rounded-lg 
-             prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:rounded-md 
-             prose-table:w-full prose-th:break-words prose-td:break-words"
-  dangerouslySetInnerHTML={{
-    __html: blog.content || "<p>No content available.</p>",
-  }}
-/>
-
+        <div
+          className="prose prose-zinc dark:prose-invert text-muted-foreground text-lg lg:text-xl leading-8 tracking-wide 
+                     break-words prose-img:max-w-full prose-img:rounded-lg 
+                     prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:rounded-md 
+                     prose-table:w-full prose-th:break-words prose-td:break-words"
+          dangerouslySetInnerHTML={{
+            __html: blog.content || "<p>No content available.</p>",
+          }}
+        />
       </div>
 
-{recentBlogs.length > 0 && (
- <aside className="w-full lg:w-[300px] space-y-4">
-        <h2 className="text-xl font-semibold pb-2">Recent Blogs</h2>
-        <Separator />
-        {recentBlogs.map((recent) => (
-          <BlogCard key={recent.id} blog={recent} />
-        ))}
-      </aside>
-)}
-     
+      {/* Recent Blogs Sidebar */}
+      {recentBlogs.length > 0 && (
+        <aside className="w-full lg:w-[300px] space-y-4 lg:sticky lg:top-20 h-fit">
+          <h2 className="text-xl font-semibold pb-2">Recent Blogs</h2>
+          <Separator />
+          {recentBlogs.map((recent) => (
+            <BlogCard key={recent.id} blog={recent} />
+          ))}
+        </aside>
+      )}
     </div>
   );
 }
