@@ -126,16 +126,12 @@ export const Resume = ({ resume }: Props) => {
                       <h3 className="text-xl font-bold dark:text-gray-300">
                         {item.profession} at <span className="text-primary">{item.company}</span>
                       </h3>
-                      <div className="flex flex-wrap gap-3 items-center">
-                        <p className="font-bold text-primary">Technologies :</p>
-                        <div className="flex items-center gap-x-2 flex-wrap">
-                          {item.technology.map((tech, i) => (
-                            <p key={i} className="text-muted-foreground font-medium">
-                              {tech}
-                            </p>
-                          ))}
-                        </div>
-                      </div>
+                      <p className="text-sm text-primary">
+                  Technologies:{" "}
+                  <span className="font-medium ml-1 text-muted-foreground">
+                    {item.technology.join(", ")}
+                  </span>
+                </p>
                       <p className="text-base text-muted-foreground">{item.desc}</p>
                     </CardContent>
                   </Card>
