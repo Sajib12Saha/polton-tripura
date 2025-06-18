@@ -43,7 +43,7 @@ export default async function BlogIdPage({ params }: BlogIdPageProps) {
     <div className="max-w-6xl mx-auto px-4 mt-16 flex flex-col lg:flex-row gap-8">
       {/* Main Blog Content */}
       <div className="flex-1 bg-gradient-to-br from-background to-accent shadow p-4 space-y-8">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl dark:text-gray-300 font-bold mt-6 break-words leading-8 tracking-wide">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl dark:text-gray-300 font-bold mt-6 break-words leading-10 tracking-wide">
           {blog.title}
         </h1>
 
