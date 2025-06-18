@@ -126,7 +126,7 @@ export const Resume = ({ resume }: Props) => {
                       <h3 className="text-xl font-bold dark:text-gray-300">
                         {item.profession} at <span className="text-primary">{item.company}</span>
                       </h3>
-                      <div className="flex gap-x-6 items-center">
+                      <div className="flex flex-col md:flex-row gap-3 items-center">
                         <p className="font-bold text-primary">Technologies :</p>
                         <div className="flex items-center gap-x-2 flex-wrap">
                           {item.technology.map((tech, i) => (
