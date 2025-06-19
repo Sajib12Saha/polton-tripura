@@ -84,7 +84,7 @@ export const Footer = ({ socialMedia, email, address, phone, name }: Props) => {
               href="https://sajibchandrasaha.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-foreground hover:underline hover:text-primary"
+              className="font-medium text-primary hover:underline hover:text-primary/70"
             >
               Sajib Chandra Saha
             </Link>
