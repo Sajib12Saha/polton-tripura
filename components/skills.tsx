@@ -33,7 +33,7 @@ export const Skills = ({skills}:Props) => {
       </div>
 
       <Tabs defaultValue={skills[0]?.name ?? ""} className="w-full p-0">
-        <TabsList className="w-full flex gap-y-2 md:flex-wrap items-center justify-around rounded-md shadow-md">
+        <TabsList className="w-full flex gap-y-2 flex-wrap items-center justify-around rounded-md shadow-md">
           {skills.map((type) => (
             <TabsTrigger key={type.id} value={type.name} className="font-semibold capitalize">
               {type.name}
