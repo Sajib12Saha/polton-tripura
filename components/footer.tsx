@@ -41,9 +41,9 @@ export const Footer = ({ socialMedia, email, address, phone, name }: Props) => {
 
         {/* Social Media Section */}
         <div className="space-y-4">
-          <h3 className="text-lg font-semibold dark:text-gray-300">Get the latest information</h3>
+          <h3 className="text-lg font-semibold dark:text-gray-300">Stay Connected</h3>
           <p className="text-sm text-muted-foreground">
-            Stay updated with the newest trends, insights, and innovations in the industry.
+            Follow on social media for updates and projects.
           </p>
           <div className="flex gap-4 mt-4">
             {socialMedia.map((sm, index) => {
@@ -77,23 +77,23 @@ export const Footer = ({ socialMedia, email, address, phone, name }: Props) => {
 
         {/* Developer Info Section */}
         <div className="space-y-3">
-          <h3 className="text-lg font-semibold dark:text-gray-300">Developer Info</h3>
+          <h3 className="text-lg font-semibold dark:text-gray-300">Developer</h3>
           <p className="text-sm text-muted-foreground">
-            Crafted with 💜 by{" "}
+            Developed by{" "}
             <Link
               href="https://sajibchandrasaha.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-foreground hover:underline hover:text-primary"
             >
-             Sajib Chandra Saha
+              Sajib Chandra Saha
             </Link>
           </p>
           <p className="text-sm text-muted-foreground">
-            Full-Stack Developer | Web Innovator
+            Full-stack web developer.
           </p>
           <p className="text-sm text-muted-foreground">
-            Building performant and delightful web experiences.
+            Creating fast, modern websites that work beautifully.
           </p>
         </div>
       </div>
@@ -104,10 +104,16 @@ export const Footer = ({ socialMedia, email, address, phone, name }: Props) => {
           © {year} Sajib Chandra Saha. All Rights Reserved.
         </p>
         <div className="flex gap-6">
-          <Link href="https://sajibchandrasaha.vercel.app" className="hover:text-primary text-muted-foreground">
+          <Link
+            href="https://sajibchandrasaha.vercel.app"
+            className="hover:text-primary text-muted-foreground"
+          >
             Terms & Service
           </Link>
-          <Link href="https://sajibchandrasaha.vercel.app" className="hover:text-primary text-muted-foreground">
+          <Link
+            href="https://sajibchandrasaha.vercel.app"
+            className="hover:text-primary text-muted-foreground"
+          >
             Privacy Policy
           </Link>
         </div>
