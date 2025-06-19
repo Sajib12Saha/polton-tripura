@@ -21,7 +21,7 @@ export default async function BlogIdPage({ params }: BlogIdPageProps) {
 
   if (!blog) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center text-center px-4">
+      <div className="min-h-screen flex flex-col items-center justify-center text-center">
         <h1 className="text-4xl font-bold text-red-600 mb-4">Blog Not Found</h1>
         <p className="text-lg text-muted-foreground mb-6">
           We couldn't find the blog you're looking for.
@@ -40,9 +40,9 @@ export default async function BlogIdPage({ params }: BlogIdPageProps) {
   });
 
   return (
-    <div className="max-w-6xl mx-auto px-2 md:px-4 mt-16 flex flex-col lg:flex-row gap-8">
+    <div className="max-w-6xl mx-auto  mt-16 flex flex-col lg:flex-row gap-8">
       {/* Main Blog Content */}
-      <div className="flex-1 bg-gradient-to-br from-background to-accent shadow p-2 md:p-4 space-y-8">
+      <div className="flex-1 bg-gradient-to-br from-background to-accent shadow  py-2 md:py-4 space-y-8">
         <h1 className="text-3xl md:text-4xl lg:text-5xl dark:text-gray-300 font-bold mt-6 break-words leading-10 tracking-wide">
           {blog.title}
         </h1>
