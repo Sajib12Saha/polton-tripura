@@ -36,8 +36,8 @@ export const Contact = ({name, email, phone, socialMedia, profession, primaryIma
             transition={{duration:1, delay:0.4, ease:"easeIn"}}
                 >Contact With Me</motion.h2>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-            <motion.div className=" lg:col-span-4"
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+            <motion.div className=" md:col-span-4"
                     initial={{opacity:0, x: -100}}
             whileInView={{opacity:1, x: 0}}
             transition={{duration:1, delay:0.4, ease:"easeIn"}}
@@ -113,7 +113,7 @@ export const Contact = ({name, email, phone, socialMedia, profession, primaryIma
 
             </motion.div>
 
-            <motion.div className="lg:col-span-8"
+            <motion.div className="md:col-span-8"
             initial={{opacity:0, x: 10}}
             whileInView={{opacity:1, x: 0}}
             transition={{duration:1, delay:0.4, ease:"easeIn"}}
