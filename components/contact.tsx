@@ -78,7 +78,7 @@ export const Contact = ({name, email, phone, socialMedia, profession, primaryIma
 
                         </div>
                         <p className="text-base font-semibold text-primary">FIND WITH ME</p>
-                        <div className="flex items-center gap-x-2 flex-wrap">
+                        <div className="flex items-center gap-2 flex-wrap">
                       {socialMedia.map((sm, index) => {
   const platform = SOCIAL_IMAGE.find(
     (p) => p.name.toLowerCase() === sm.platformName.toLowerCase()
