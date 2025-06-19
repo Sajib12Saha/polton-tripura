@@ -201,14 +201,15 @@
 /* Inline code */
 .prose code {
   background: none;
-  color: inherit;
+  color: #22c55e; /* ✅ Tailwind green-500 */
   padding: 0.1rem 0.3rem;
   border-radius: 0.25rem;
   font-size: 0.95em;
 }
+
 .dark .prose code {
   background: none;
-  color: inherit;
+  color: #16a34a; /* ✅ Tailwind green-600 */
 }
 
 /* Scrollbar */
