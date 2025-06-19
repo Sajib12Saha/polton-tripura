@@ -77,7 +77,7 @@ export const Footer = ({ socialMedia, email, address, phone, name }: Props) => {
 
         {/* Developer Info Section */}
         <div className="space-y-3">
-          <h3 className="text-lg font-semibold dark:text-gray-300">Developer</h3>
+          <h3 className="text-lg font-semibold dark:text-gray-300">Developer Info</h3>
           <p className="text-sm text-muted-foreground">
             Developed by{" "}
             <Link
