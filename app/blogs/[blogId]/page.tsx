@@ -75,7 +75,7 @@ export default async function BlogIdPage({ params }: BlogIdPageProps) {
 
       {/* Recent Blogs Sidebar */}
       {recentBlogs.length > 0 && (
-        <aside className="w-full lg:w-[300px] space-y-4 lg:sticky lg:top-20 h-fit">
+        <aside className=" space-y-4 lg:sticky lg:top-20 h-fit">
           <h2 className="text-xl font-semibold pb-2">Recent Blogs</h2>
           <Separator />
           {recentBlogs.map((recent) => (
