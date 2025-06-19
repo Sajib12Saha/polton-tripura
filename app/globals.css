@@ -214,7 +214,7 @@
 
 /* Scrollbar */
 .prose pre::-webkit-scrollbar {
-  height: 4px;
+  height: 2px;
 }
 .prose pre::-webkit-scrollbar-thumb {
   background-color: var(--color-muted-foreground);
