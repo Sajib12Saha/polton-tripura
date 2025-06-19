@@ -98,11 +98,7 @@
   }
 }
 
-/* styles/globals.css */
-
-
-/* General Container */
-/* General Container */
+/* Prose Styling */
 .prose {
   overflow-wrap: break-word;
   word-break: break-word;
@@ -138,7 +134,6 @@
 .prose p {
   margin-bottom: 1.25rem;
   font-size: 1rem;
-  color: var(--color-foreground);
 }
 
 /* Lists */
@@ -146,7 +141,6 @@
 .prose ol {
   padding-left: 1.25rem;
   margin-bottom: 1rem;
-  color: var(--color-foreground);
 }
 
 .prose ul {
@@ -166,35 +160,29 @@
   text-decoration: underline;
   transition: color 0.2s;
 }
-
 .prose a:hover {
   color: var(--color-primary-foreground);
 }
 
-.dark .prose a {
-  color: var(--color-primary);
-}
-
-/* Code blocks */
+/* Code Blocks */
 .prose pre {
-  background-color: var(--color-muted);
-  color: var(--color-foreground);
-  border-radius: 0.5rem;
+  background: none;
+  color: inherit;
   padding: 1rem;
+  border-radius: 0.5rem;
   overflow-x: auto;
   font-size: 0.9rem;
   line-height: 1.5;
   margin: 1rem 0;
 }
-
 .dark .prose pre {
-  background-color: var(--color-muted);
-  color: var(--color-muted-foreground);
+  background: none;
+  color: inherit;
 }
 
 /* Syntax Highlighting */
 .prose pre code span.token.comment {
-  color: #6b7280;
+  color: var(--color-muted-foreground);
   font-style: italic;
 }
 .prose pre code span.token.keyword {
@@ -210,37 +198,29 @@
   color: #eab308;
 }
 
-/* Inline code (no background) */
+/* Inline code */
 .prose code {
-  padding: 0.2rem 0.4rem;
+  background: none;
+  color: inherit;
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.25rem;
   font-size: 0.95em;
-  color: var(--color-foreground);
-  background: none;
-  border-radius: 0;
 }
-
 .dark .prose code {
-  color: var(--color-muted-foreground);
   background: none;
+  color: inherit;
 }
 
-/* Slim scrollbar */
+/* Scrollbar */
 .prose pre::-webkit-scrollbar {
   height: 4px;
-  width: 4px;
 }
-
 .prose pre::-webkit-scrollbar-thumb {
   background-color: var(--color-border);
-  border-radius: 4px;
+  border-radius: 8px;
 }
-
-.prose pre::-webkit-scrollbar-track {
-  background: transparent;
-}
-
 .dark .prose pre::-webkit-scrollbar-thumb {
-  background-color: var(--color-border);
+  background-color: var(--color-muted-foreground);
 }
 
 /* Images */
@@ -261,9 +241,9 @@
   border-radius: 0.25rem;
   color: var(--color-muted-foreground);
 }
-
 .dark .prose blockquote {
   background-color: var(--color-muted);
   color: var(--color-muted-foreground);
   border-left-color: var(--color-muted-foreground);
 }
+
