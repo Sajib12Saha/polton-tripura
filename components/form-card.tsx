@@ -27,7 +27,6 @@ export const FormCard = () =>{
           email:"",
           subject:"",
           message:"",
-          phone:"",
           attachment:null,
 
         },
@@ -75,13 +74,7 @@ const onSubmit = async (data: z.infer<typeof contactSchema>) => {
             <CustomForm field={field} fieldType="input" label="YOUR NAME" placeHolder="your name" important/>
           )}
         />
-            <FormField
-          control={form.control}
-          name="phone"
-          render={({ field }) => (
-            <CustomForm field={field} fieldType="input" label="PHONE NUMBER" placeHolder="+00823562435"/>
-          )}
-        />
+           
         </div>
         <FormField
           control={form.control}
