@@ -45,7 +45,7 @@ export const Footer = ({ socialMedia, email, address, phone, name }: Props) => {
           <p className="text-sm text-muted-foreground">
             Follow on social media for updates and projects.
           </p>
-          <div className="flex gap-4 mt-4">
+          <div className="flex flex-wrap gap-4 mt-4">
             {socialMedia.map((sm, index) => {
               const platform = SOCIAL_IMAGE.find(
                 (p) => p.name.toLowerCase() === sm.platformName.toLowerCase()
