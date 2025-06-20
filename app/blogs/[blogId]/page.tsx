@@ -75,34 +75,12 @@ export default async function BlogIdPage({ params }: BlogIdPageProps) {
 
     {/* Recent Blogs Sidebar */}
     {recentBlogs.length > 0 && (
-      <aside className="bg-background p-4 rounded-xl border shadow-md h-fit sticky top-20">
+      <aside className="bg-background p-4 rounded-xl  h-fit sticky top-20">
         <h2 className="text-xl font-bold text-foreground mb-3">Recent Blogs</h2>
         <Separator />
         <div className="grid gap-4 mt-4">
-          {recentBlogs.map((recent) => (
-            <div
-              key={recent.id}
-              className="grid grid-cols-[80px_1fr] gap-4 items-start p-2 rounded-lg hover:bg-muted transition"
-            >
-              <div className="relative w-full h-20 rounded-md overflow-hidden">
-                <Image
-                  src={recent.image || "/fallback.jpg"}
-                  alt={recent.title}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-              <div className="flex flex-col justify-between">
-                <p className="text-sm font-semibold line-clamp-2">{recent.title}</p>
-                <span className="text-xs text-muted-foreground mt-1">
-                  {new Date(recent.createdAt).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  })}
-                </span>
-              </div>
-            </div>
+          {recentBlogs.map((recentBlog) => (
+  <BlogCard blog={recentBlog} key={recentBlog.id}/>
           ))}
         </div>
       </aside>
