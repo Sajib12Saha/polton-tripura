@@ -40,9 +40,9 @@ export default async function BlogIdPage({ params }: BlogIdPageProps) {
   });
 
   return (
-    <div className="max-w-6xl mx-auto mt-16 px-2 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-4">
+    <div className="max-w-6xl mx-auto mt-16 px-2 grid grid-cols-1 md:grid-cols-12 gap-4">
       {/* Main Blog Content */}
-      <article className="space-y-8">
+      <article className="space-y-8 col-span-12 md:col-span-8">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold break-words leading-tight tracking-wide dark:text-gray-300">
           {blog.title}
         </h1>
@@ -75,7 +75,7 @@ export default async function BlogIdPage({ params }: BlogIdPageProps) {
 
       {/* Recent Blogs Sidebar */}
       {recentBlogs.length > 0 && (
-        <aside className="rounded-xl  h-fit sticky top-20 relative space-y-4">
+        <aside className="hidden md:block col-span-4 h-fit sticky top-20 space-y-4">
           <h2 className="text-xl font-bold text-foreground">Recent Blogs</h2>
           <Separator />
           <div className="grid gap-4">
