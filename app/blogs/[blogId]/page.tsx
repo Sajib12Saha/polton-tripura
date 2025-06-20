@@ -75,7 +75,7 @@ export default async function BlogIdPage({ params }: BlogIdPageProps) {
 
       {/* Recent Blogs Sidebar */}
       {recentBlogs.length > 0 && (
-        <aside className="rounded-xl  h-fit sticky top-20 lg:relative space-y-4">
+        <aside className="rounded-xl  h-fit sticky top-20 relative space-y-4">
           <h2 className="text-xl font-bold text-foreground">Recent Blogs</h2>
           <Separator />
           <div className="grid gap-4">
