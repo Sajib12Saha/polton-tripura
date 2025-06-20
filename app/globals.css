@@ -235,12 +235,10 @@
   padding-left: 1rem;
   margin: 1rem 0;
   font-style: italic;
-  background-color: var(--color-muted);
   border-radius: 0.25rem;
   color: var(--color-muted-foreground);
 }
 .dark .prose blockquote {
-  background-color: var(--color-muted);
   color: var(--color-muted-foreground);
   border-left-color: var(--color-muted-foreground);
 }
