@@ -1,9 +1,11 @@
 import { getBlog } from "@/actions/get-blog";
 import { getBlogs } from "@/actions/get-blogs";
-import { BlogCard } from "@/components/blog-card";
 import { Separator } from "@/components/ui/separator";
+import { Card, CardContent } from "@/components/ui/card";
 import { BlogType } from "@/types/type";
 import Image from "next/image";
+import Link from "next/link";
+import DOMPurify from "isomorphic-dompurify";
 
 interface BlogIdPageProps {
   params: Promise<{ blogId: string }>;
@@ -73,15 +75,74 @@ export default async function BlogIdPage({ params }: BlogIdPageProps) {
         />
       </article>
 
-      {/* Recent Blogs Sidebar */}
+      {/* Recent Blogs Sidebar (Manual Cards) */}
       {recentBlogs.length > 0 && (
-        <aside className="bg-background p-4 rounded-xl border shadow-sm h-fit sticky top-20 lg:relative space-y-4">
+        <aside className=" p-4 rounded-xl h-fit sticky top-20 lg:relative space-y-4">
           <h2 className="text-xl font-bold text-foreground">Recent Blogs</h2>
           <Separator />
-          <div className="grid gap-4">
-            {recentBlogs.map((recentBlog) => (
-              <BlogCard blog={recentBlog} key={recentBlog.id} />
-            ))}
+          <div className="grid gap-4 mt-4">
+            {recentBlogs.map((recent) => {
+              const formattedDate = new Date(recent.createdAt).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              });
+
+              // Sanitize and preview content
+              const cleanHTML = DOMPurify.sanitize(recent.content, {
+                ALLOWED_TAGS: [
+                  "p", "br", "b", "strong", "i", "em", "u", "s", "ul", "ol", "li",
+                  "h1", "h2", "h3", "blockquote", "code", "pre", "div", "span", "a"
+                ],
+                ALLOWED_ATTR: ["class", "href", "target", "rel", "style"],
+              });
+
+              const tempDiv = typeof window !== "undefined" ? document.createElement("div") : null;
+              if (tempDiv) {
+                tempDiv.innerHTML = cleanHTML;
+              }
+              const plainText = tempDiv?.textContent || tempDiv?.innerText || "";
+              const previewText = plainText.split(" ").slice(0, 20).join(" ") + "...";
+
+              return (
+                <Link
+                  key={recent.id}
+                  href={`/blog/${recent.id}`}
+                  className="block hover:shadow-md transition-shadow duration-200"
+                >
+                  <Card className="overflow-hidden flex flex-col">
+                    <CardContent className="space-y-3 flex flex-col p-3">
+                      <div className="relative w-full h-40 rounded-md overflow-hidden">
+                        <Image
+                          src={recent.image || "/fallback.jpg"}
+                          alt={recent.title}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, 400px"
+                          priority
+                        />
+                      </div>
+
+                      <div className="flex items-center justify-between mt-2">
+                        <h4 className="text-base font-semibold truncate max-w-[70%] dark:text-gray-300">
+                          {recent.title}
+                        </h4>
+                        <span className="text-xs text-muted-foreground whitespace-nowrap">
+                          {formattedDate}
+                        </span>
+                      </div>
+
+                      <p
+                        className="text-sm text-muted-foreground line-clamp-3"
+                        dangerouslySetInnerHTML={{
+                          __html: DOMPurify.sanitize(previewText),
+                        }}
+                      />
+                    </CardContent>
+                  </Card>
+                </Link>
+              );
+            })}
           </div>
         </aside>
       )}
