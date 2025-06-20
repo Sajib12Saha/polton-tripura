@@ -40,7 +40,7 @@ export default async function BlogIdPage({ params }: BlogIdPageProps) {
   });
 
   return (
-    <div className="max-w-6xl mx-auto mt-16 px-4 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10">
+    <div className="max-w-6xl mx-auto mt-16 px-2 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-4">
       {/* Main Blog Content */}
       <article className="space-y-8">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold break-words leading-tight tracking-wide dark:text-gray-300">
