@@ -23,7 +23,7 @@ export default async function BlogIdPage({ params }: BlogIdPageProps) {
 
   if (!blog) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center text-center">
+      <div className="min-h-screen flex flex-col items-center justify-center text-center px-4">
         <h1 className="text-4xl font-bold text-red-600 mb-4">Blog Not Found</h1>
         <p className="text-lg text-muted-foreground mb-6">
           We couldn't find the blog you're looking for.
@@ -42,9 +42,9 @@ export default async function BlogIdPage({ params }: BlogIdPageProps) {
   });
 
   return (
-    <div className="max-w-6xl mx-auto mt-16 px-4 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10">
+    <div className="max-w-6xl mx-auto mt-16 px-4 flex flex-col lg:grid lg:grid-cols-[1fr_320px] gap-10">
       {/* Main Blog Content */}
-      <article className="space-y-8">
+      <article className="order-1 space-y-8">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold break-words leading-tight tracking-wide dark:text-gray-300">
           {blog.title}
         </h1>
@@ -65,9 +65,9 @@ export default async function BlogIdPage({ params }: BlogIdPageProps) {
         </div>
 
         <div
-          className="prose prose-zinc dark:prose-invert text-muted-foreground text-lg lg:text-xl leading-8 tracking-wide 
-                     break-words prose-img:max-w-full prose-img:rounded-lg 
-                     prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:rounded-md 
+          className="prose prose-zinc dark:prose-invert text-muted-foreground text-lg lg:text-xl leading-8 tracking-wide
+                     break-words prose-img:max-w-full prose-img:rounded-lg
+                     prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:rounded-md
                      prose-table:w-full prose-th:break-words prose-td:break-words"
           dangerouslySetInnerHTML={{
             __html: blog.content || "<p>No content available.</p>",
@@ -75,9 +75,9 @@ export default async function BlogIdPage({ params }: BlogIdPageProps) {
         />
       </article>
 
-      {/* Recent Blogs Sidebar (Manual Cards) */}
+      {/* Recent Blogs Sidebar */}
       {recentBlogs.length > 0 && (
-        <aside className=" p-4 rounded-xl h-fit sticky top-20 lg:relative space-y-4">
+        <aside className="order-2 lg:order-none bg-background p-4 rounded-xl h-fit sticky top-20 lg:relative space-y-4">
           <h2 className="text-xl font-bold text-foreground">Recent Blogs</h2>
           <Separator />
           <div className="grid gap-4 mt-4">
