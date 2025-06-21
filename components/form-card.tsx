@@ -110,7 +110,7 @@ const onSubmit = async (data: z.infer<typeof contactSchema>) => {
   )}
 />
 
-        <Button type="submit" className="w-full hover:bg-primary hover:text-foreground">{pending ? <Loader2 className="size-4 animate-spin"/> : " SEND MESSAGE"}</Button>
+        <Button type="submit" className="w-full hover:bg-primary hover:text-white">{pending ? <Loader2 className="size-4 animate-spin"/> : " SEND MESSAGE"}</Button>
       </form>
     </Form>
             </CardContent>
