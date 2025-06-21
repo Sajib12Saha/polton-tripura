@@ -66,7 +66,7 @@ const onSubmit = async (data: z.infer<typeof contactSchema>) => {
             <CardContent>
             <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+
         <FormField
           control={form.control}
           name="name"
@@ -74,8 +74,7 @@ const onSubmit = async (data: z.infer<typeof contactSchema>) => {
             <CustomForm field={field} fieldType="input" label="YOUR NAME" placeHolder="your name" important/>
           )}
         />
-           
-        </div>
+
         <FormField
           control={form.control}
           name="email"
