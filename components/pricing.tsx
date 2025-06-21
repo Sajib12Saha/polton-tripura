@@ -108,7 +108,7 @@ export const Pricing = ({ gig }: Props) => {
 
                         {gig.orderLink && (
                           <a href={gig.orderLink} target="_blank" rel="noopener noreferrer">
-                            <Button className="w-full hover:bg-primary hover:text-foreground transition-all duration-200">
+                            <Button className="w-full hover:bg-primary hover:text-white transition-all duration-200">
                               Order Now
                             </Button>
                           </a>
