@@ -44,7 +44,7 @@ export const Services = ({services}:Props) =>{
                     {services.map((element, index)=>(
                         <div className="flex gap-x-8 items-center " key={index}>
                             <div className="size-2 bg-primary rounded-full shrink-0"/>
-                            <p className="tracking-wide text-muted-foreground">{element}</p>
+                            <p className="tracking-wide text-base font-semibold text-muted-foreground">{element}</p>
                         </div>
                     ))}
                     </div>
