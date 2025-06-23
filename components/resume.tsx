@@ -126,7 +126,7 @@ export const Resume = ({ resume }: Props) => {
                       <h3 className="text-xl font-bold dark:text-gray-300">
                         {item.profession} at <span className="text-primary">{item.company}</span>
                       </h3>
-                      <p className="text-sm text-primary">
+                      <p className="text-base font-semibold text-primary">
                   Technologies:{" "}
                   <span className="font-medium ml-1 text-muted-foreground">
                     {item.technology.join(", ")}
