@@ -19,7 +19,7 @@ export const Footer = ({ socialMedia, email, address, phone, name }: Props) => {
   return (
     <div className="space-y-6 max-w-7xl mx-auto px-6 py-12">
       {/* Grid layout with 3 columns */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Contact Section */}
         <div className="space-y-4">
           <h3 className="text-lg font-semibold dark:text-gray-300">Contact</h3>
