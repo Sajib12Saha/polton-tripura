@@ -75,27 +75,6 @@ export const Footer = ({ socialMedia, email, address, phone, name }: Props) => {
           </div>
         </div>
 
-        {/* Developer Info Section */}
-        <div className="space-y-3">
-          <h3 className="text-lg font-semibold dark:text-gray-300">Developer Info</h3>
-          <p className="text-sm text-muted-foreground">
-            Developed by{" "}
-            <Link
-              href="https://sajibchandrasaha.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium text-primary hover:underline hover:text-primary/70"
-            >
-              Sajib Chandra Saha
-            </Link>
-          </p>
-          <p className="text-sm text-muted-foreground">
-            Full-stack web developer.
-          </p>
-          <p className="text-sm text-muted-foreground">
-            Creating fast, modern websites that work beautifully.
-          </p>
-        </div>
       </div>
 
       {/* Footer Bottom Section */}
