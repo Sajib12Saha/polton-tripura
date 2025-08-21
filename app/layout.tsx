@@ -20,7 +20,7 @@ const smooch = Smooch_Sans({
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "Paltan Joy Tripura",
-    description: "Sajib Chandra Saha",
+    description: "  Hi, I’m Paltanjoy! I’m a Web Analytics and Tracking Specialist helping businesses optimize their online presence. With tools like Google Analytics (GA4), Google Tag Manager, Meta Pixel & Facebook CAPI, Server-Side Tracking, and Google Ads Conversion Tracking, I make sure your campaigns are data-driven, cost-effective, and result-oriented. ",
     icons: {
       icon: "/paltan.jpeg", // relative path to your icon or undefined
     },
