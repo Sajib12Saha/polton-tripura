@@ -229,7 +229,7 @@ export const SKILLS = [
 "Google Tag Manager",
 "Google ads Tracking",
 "GA4 e-commerce tracking", 
-"Google analytics",
+"Google analytics 4",
 ] 
 
 export const EXPERIENCE = [
