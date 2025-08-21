@@ -3,17 +3,9 @@
 import Image from "next/image";
 import { motion } from "framer-motion"
 
-interface Props {
-name:string;
-professionBio:string;
-welcomeMessage:string;
-primaryImage:string;
-secondaryImage:string;
-profession:string;
 
-}
 
-export const HeroSection = ({name,profession,primaryImage,professionBio,secondaryImage, welcomeMessage}:Props) => {
+export const HeroSection = () => {
 return (
 <section id="home" className="px-4 py-10 sm:py-16 md:py-20 lg:py-24">
 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center max-w-7xl mx-auto">
@@ -27,23 +19,27 @@ className="order-2 md:order-1 lg:col-span-7 space-y-6"
         whileInView={{opacity:1, x: 0}}  
         transition={{duration:1, delay:0.2, ease:"easeIn"}}  
       >  
-        {welcomeMessage}  
+       Welcome To My World 
       </motion.p>  
 
       <h3 className="text-4xl sm:text-5xl font-bold dark:text-gray-300"  
         
       >  
-        Hi, I'm <span className="text-primary">{name}</span>  
+        Hi, I'm <span className="text-primary"> Paltan Joy Tripura</span>  
         <br />  
-        a {profession}  
+        a Web Analytics
       </h3>  
 
-      <motion.p className="text-lg md:text-xl text-muted-foreground"  
+      <motion.p className="text-lg md:text-xl text-muted-foreground font-semibold"  
         initial={{opacity:0, x: -100}}  
         whileInView={{opacity:1, x: 0}}  
         transition={{duration:1, delay:0.4, ease:"easeIn"}}  
       >  
-     {professionBio}  
+   Hi, I’m Paltanjoy! I’m a Web Analytics and Tracking Specialist helping businesses optimize their online presence. With tools like Google Analytics (GA4), Google Tag Manager, Meta Pixel & Facebook CAPI, Server-Side Tracking, and Google Ads Conversion Tracking, I make sure your campaigns are data-driven, cost-effective, and result-oriented.
+I also set up Lead & Contact Form Tracking, TikTok, Twitter, Pinterest Pixels, and for e-commerce, I configured Dynamic Product Catalogs and Enhanced Ecommerce Event Tracking (Cart, Checkout, Purchase, etc.) so you can track every customer action.
+My mission is simple: deliver accurate data, reduce wasted ad spend, and maximize your ROI. I’ve helped many clients achieve better results through smart tracking—and I’d love to help your business grow too.
+💬 Want to improve your performance and scale faster? Send me a quick message today!
+
       </motion.p>  
     </div>  
 
@@ -59,8 +55,8 @@ className="order-2 md:order-1 lg:col-span-7 space-y-6"
 
       {/* Foreground Image */}  
       <Image  
-        src={secondaryImage}  
-        alt={name}  
+        src={"/paltan.jpeg"}  
+        alt={"Paltan Joy Tripura"}  
         width={1000}  
         height={1000}  
         className="relative z-10 object-contain h-[250px] sm:h-[280px] lg:h-[300px] w-auto"  

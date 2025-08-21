@@ -8,7 +8,7 @@ import Link from "next/link"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { SocialMedia } from "@/types/type"
-import { NAV_ITEMS, SOCIAL_IMAGE } from "@/data"
+import { NAV_ITEMS,  SOCIAL_MEDIA } from "@/data"
 
 
 interface Props {
@@ -18,7 +18,7 @@ interface Props {
  professionBio?:string;
 }
 
-export const MobileNavbar = ({socialMedia, primaryImage, name, professionBio}:Props) =>{
+export const MobileNavbar = ({socialMedia}:Props) =>{
 
   const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
@@ -40,8 +40,8 @@ export const MobileNavbar = ({socialMedia, primaryImage, name, professionBio}:Pr
             <div className="space-y-2">
            <div className="relative size-14 rounded-full p-2 shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.8)] dark:shadow-[3px_3px_3px_rgba(0,0,0,0.25)_inset,-1px_-1px_4px_rgba(255,255,255,0.16)_inset]">
              <Image
-                src={primaryImage as string || ""}
-                alt={name as string || ""}
+                src={"/paltan.jpeg"}
+                alt={"Paltan Joy Tripura"}
                 width={70}
                 height={70}
                 className="overflow-hidden rounded-full object-cover"
@@ -65,33 +65,26 @@ export const MobileNavbar = ({socialMedia, primaryImage, name, professionBio}:Pr
     <Separator/>
          <p className="text-base font-semibold text-primary">FIND WITH ME</p>
             <div className="flex items-center gap-x-2 flex-wrap">
-                    {socialMedia?.map((sm, index) => {
-  const platform = SOCIAL_IMAGE.find(
-    (p) => p.name.toLowerCase() === sm.platformName.toLowerCase()
-  );
-
-  if (!platform) return null;
-
-  return (
+                    {SOCIAL_MEDIA.map(({link,platform}, index) =>  (
     <Link
       key={index}
-      href={sm.platformLink}
+      href={link}
       className="hover:scale-110 transition-all duration-300"
       target="_blank"
       rel="noopener noreferrer"
     >
       <Button size="icon">
         <Image
-          src={platform.img}
-          alt={platform.name}
+          src={platform}
+          alt={link}
           width={27}
           height={27}
           className="object-cover rounded-full"
         />
       </Button>
     </Link>
-  );
-})}
+  )
+)}
                 </div>
 
         </SheetContent>

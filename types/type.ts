@@ -19,10 +19,8 @@ export type Profile = {
 };
 
 export type SocialMedia = {
-  id: string;
-  platformName: string;
-  platformLink: string;
-  profileId: string;
+  platform: string;
+  link: string;
 };
 
 export type Portfolio = {
@@ -45,12 +43,12 @@ export type Technology = {
 };
 
 export type BlogType = {
-  id: string;
+  id: number;
   title: string;
-  content: string;
-  image: string;
-  createdAt: Date;
-  updatedAt: Date;
+  content: string[];
+  description: string;
+  benefits:string[]
+  date:string;
 };
 
 export type Gig = {
@@ -104,12 +102,9 @@ type Experience = {
 
 
 export type Service = {
-  id: string;
   title: string;
-   desc: string;
-  services: string[];
-  createdAt: Date;
-  updatedAt: Date;
+  features:{subtitle:string, service:string}[]
+  
 };
 
 

@@ -3,15 +3,15 @@ import { Card, CardContent } from "./ui/card"
 import Image from "next/image"
 
 interface Props{
-project:string
+certificate:string
 }
 
-export const PortfolioCard = ({project}:Props) =>{
+export const CerticateCard = ({certificate}:Props) =>{
     return (
         <Card>
             <CardContent className="space-y-3 flex flex-col items-start justify-center w-full">
             <Image 
-            src={project}
+            src={certificate}
             alt={"Polton Tripura"}
             width={300}
             height={300}

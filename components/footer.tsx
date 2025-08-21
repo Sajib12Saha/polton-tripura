@@ -1,24 +1,18 @@
-import Link from "next/link";
-import { Button } from "./ui/button";
-import Image from "next/image";
-import { Mail, MapPin, Phone } from "lucide-react";
-import { SocialMedia } from "@/types/type";
-import { SOCIAL_IMAGE } from "@/data";
+"use client"
 
-interface Props {
-  socialMedia: SocialMedia[];
-  address: string;
-  phone: string;
-  email: string;
-  name: string;
-}
+import Link from "next/link"
+import { Button } from "./ui/button"
+import Image from "next/image"
+import { Mail, MapPin, Phone } from "lucide-react"
+import { SOCIAL_MEDIA } from "@/data"
 
-export const Footer = ({ socialMedia, email, address, phone, name }: Props) => {
-  const year = new Date().getFullYear();
+
+export const Footer = () => {
+  const year = new Date().getFullYear()
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto px-6 py-12">
-      {/* Grid layout with 3 columns */}
+    <footer className="space-y-6 max-w-7xl mx-auto px-6 py-12">
+      {/* Grid layout with 2 sections */}
       <div className="flex flex-col justify-start md:items-center md:justify-around md:flex-row gap-8">
         {/* Contact Section */}
         <div className="space-y-4">
@@ -26,15 +20,15 @@ export const Footer = ({ socialMedia, email, address, phone, name }: Props) => {
           <ul className="space-y-3 text-base font-medium">
             <li className="flex items-center gap-3 text-muted-foreground hover:text-primary hover:underline">
               <Phone className="w-4 h-4 text-primary" />
-              <a href={`tel:${phone}`}>{phone}</a>
+              <a href={`tel:01608731422`}>01608731422</a>
             </li>
             <li className="flex items-center gap-3 text-muted-foreground hover:text-primary hover:underline">
               <Mail className="w-4 h-4 text-primary" />
-              <a href={`mailto:${email}`}>{email}</a>
+              <a href={`mailto:skillpaltanbd@gmail.com`}>skillpaltanbd@gmail.com</a>
             </li>
             <li className="flex items-center gap-3 text-muted-foreground">
               <MapPin className="w-4 h-4 text-primary" />
-              {address}
+              Bazar road, Khagrachari, Chittagong, Bangladesh
             </li>
           </ul>
         </div>
@@ -46,35 +40,27 @@ export const Footer = ({ socialMedia, email, address, phone, name }: Props) => {
             Follow on social media for updates and projects.
           </p>
           <div className="flex flex-wrap gap-4 mt-4">
-            {socialMedia.map((sm, index) => {
-              const platform = SOCIAL_IMAGE.find(
-                (p) => p.name.toLowerCase() === sm.platformName.toLowerCase()
-              );
-              if (!platform) return null;
-
-              return (
-                <Link
-                  key={index}
-                  href={sm.platformLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:scale-110 transition-all duration-300"
-                >
-                  <Button size="icon">
-                    <Image
-                      src={platform.img}
-                      alt={platform.name}
-                      width={27}
-                      height={27}
-                      className="object-cover rounded-full"
-                    />
-                  </Button>
-                </Link>
-              );
-            })}
+            {SOCIAL_MEDIA.map((sm, index) => (
+              <Link
+                key={index}
+                href={sm.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition-all duration-300"
+              >
+                <Button size="icon">
+                  <Image
+                    src={sm.platform}
+                    alt="social icon"
+                    width={27}
+                    height={27}
+                    className="object-cover rounded-full"
+                  />
+                </Button>
+              </Link>
+            ))}
           </div>
         </div>
-
       </div>
 
       {/* Footer Bottom Section */}
@@ -97,6 +83,6 @@ export const Footer = ({ socialMedia, email, address, phone, name }: Props) => {
           </Link>
         </div>
       </div>
-    </div>
-  );
-};
+    </footer>
+  )
+}

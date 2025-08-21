@@ -1,17 +1,24 @@
-import { getBlogs } from "@/actions/get-blogs";
-import { BlogCard } from "@/components/blog-card";
-import { BlogType } from "@/types/type";
-import Link from "next/link";
+import { BlogCard } from "@/components/blog-card"
+import Link from "next/link"
+import { BLOGS } from "@/data"
+import { BlogType } from "@/types/type"
 
 interface BlogPageProps {
-  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+  searchParams?: Promise<{ page?: string }>
 }
-const BlogPage = async ({ searchParams }: BlogPageProps) => {
-const params = await searchParams;
-  const pageStr = params?.page;
-  const currentPage = Number(Array.isArray(pageStr) ? pageStr[0] : pageStr) || 1;
 
-  const { data: blogs, totalPages } = await getBlogs(currentPage);
+// items per page
+const ITEMS_PER_PAGE = 6
+
+const BlogPage = async ({ searchParams }: BlogPageProps) => {
+  const params = await searchParams
+  const currentPage = Number(params?.page || 1)
+
+  // paginate blogs
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
+  const endIndex = startIndex + ITEMS_PER_PAGE
+  const blogs = BLOGS.slice(startIndex, endIndex)
+  const totalPages = Math.ceil(BLOGS.length / ITEMS_PER_PAGE)
 
   return (
     <div className="mt-18 space-y-8">
@@ -19,7 +26,9 @@ const params = await searchParams;
         <p className="text-primary font-semibold text-lg md:text-xl">
           Visit my blog and keep your feedback
         </p>
-        <h2 className="text-5xl md:text-6xl font-bold dark:text-gray-300">My Blog</h2>
+        <h2 className="text-5xl md:text-6xl font-bold dark:text-gray-300">
+          My Blog
+        </h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -29,30 +38,46 @@ const params = await searchParams;
       </div>
 
       <div className="flex justify-center items-center gap-4 pt-10">
-        <Link
-          href={`?page=${currentPage - 1}`}
-          className={`px-4 py-2 shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.8)] dark:shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.16)] rounded ${
-            currentPage === 1 ? "pointer-events-none opacity-50" : "hover:bg-primary transition"
-          }`}
-        >
-          Previous
-        </Link>
+{currentPage > 1 ? (
+  <Link
+    href={`?page=${currentPage - 1}`}
+    className="px-4 py-2 shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.8)]
+               dark:shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.16)]
+               rounded hover:bg-primary transition"
+  >
+    Previous
+  </Link>
+) : (
+  <span className="px-4 py-2 rounded opacity-50 pointer-events-none shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.8)]
+                    dark:shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.16)]">
+    Previous
+  </span>
+)}
 
-        <span className="text-lg dark:text-gray-300 font-medium">
-          Page {currentPage} of {totalPages}
-        </span>
+<span className="text-lg dark:text-gray-300 font-medium">
+  Page {currentPage} of {totalPages}
+</span>
 
-        <Link
-          href={`?page=${currentPage + 1}`}
-          className={`px-4 py-2 shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.8)] dark:shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.16)] rounded ${
-            currentPage >= totalPages ? "pointer-events-none opacity-50" : "hover:bg-primary transition"
-          }`}
-        >
-          Next
-        </Link>
+{currentPage < totalPages ? (
+  <Link
+    href={`?page=${currentPage + 1}`}
+    className="px-4 py-2 shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.8)]
+               dark:shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.16)]
+               rounded hover:bg-primary transition"
+  >
+    Next
+  </Link>
+) : (
+  <span className="px-4 py-2 rounded opacity-50 pointer-events-none shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.8)]
+                    dark:shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.16)]">
+    Next
+  </span>
+)}
+
+
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default BlogPage;
+export default BlogPage

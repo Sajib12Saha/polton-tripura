@@ -29,8 +29,8 @@ export const Navbar = ({name,primaryImage, socialMedia, professionBio}:Props)  =
     >
             <div className="relative size-14 rounded-full p-2 shadow-[3px_3px_3px_rgba(0,0,0,0.25),-1px_-1px_4px_rgba(255,255,255,0.8)] dark:shadow-[3px_3px_3px_rgba(0,0,0,0.25)_inset,-1px_-1px_4px_rgba(255,255,255,0.16)_inset]">
               <Image
-                 src={primaryImage || ""}
-                 alt={name || ""}
+                 src={"/paltan.jpeg"}
+                 alt={"Paltan Joy Tripura"}
                  width={70}
                  height={70}
                  className="overflow-hidden rounded-full object-cover"
