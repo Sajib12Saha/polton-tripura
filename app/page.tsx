@@ -6,8 +6,6 @@ import { Resume } from "@/components/resume";
 import { Blogs } from "@/components/blogs";
 import { Portfolio } from "@/components/portfolio";
 import { Separator } from "@/components/ui/separator";
-import { getResume } from "@/actions/get-resume";
-import { getSkills } from "@/actions/get-skills";
 import { BLOGS, CERTIFICATES, SERVICES } from "@/data";
 
 import { PORTFOLIO } from "@/data";
@@ -15,8 +13,7 @@ import { Certificate } from "@/components/certificate";
 
 export default async function  Home () {
 
-    const resume = await getResume()
-    const skills = await getSkills()
+
 
 
  
@@ -45,22 +42,21 @@ export default async function  Home () {
 
 
 
-{skills && (
+
   <>
-   <Skills skills={skills}/>
+   <Skills />
   <Separator/>
   </>
-)}
 
 
-{
-  resume && (
+
+
+
     <>
-    <Resume resume= {resume}/>
+    <Resume />
    <Separator/>
     </>
-  )
-}
+
 
 
 

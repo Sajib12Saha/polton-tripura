@@ -4,18 +4,16 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Card, CardContent } from "./ui/card";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { Resume as ResumeType } from "@/types/type";
 import { motion } from "framer-motion";
+import { EDUCATION, EXPERIENCE } from "@/data";
 
-interface Props {
-  resume: ResumeType;
-}
 
-export const Resume = ({ resume }: Props) => {
+
+export const Resume = () => {
   const [activeEducation, setActiveEducation] = useState<number | null>(null);
   const [activeExperience, setActiveExperience] = useState<number | null>(null);
 
-  const { education, experience } = resume;
+
 
   return (
     <section id="resume" className="space-y-4 md:space-y-8 py-20">
@@ -47,7 +45,7 @@ export const Resume = ({ resume }: Props) => {
         {/* === Education Tab === */}
         <TabsContent value="education" className="py-8 lg:px-14">
           <div className="relative border-l-4 border-neutral-300 dark:border-black/30 ml-4 pl-4">
-            {education.map((item, index) => (
+            {EDUCATION.map((item, index) => (
               <motion.div
                 key={index}
                 className="relative mb-10 group"
@@ -55,7 +53,7 @@ export const Resume = ({ resume }: Props) => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: index * 0.4, ease: "easeIn" }}
               >
-                {index !== education.length && (
+                {index !== EDUCATION.length && (
                   <span className="absolute left-[-2px] top-6 h-1 w-full bg-neutral-300 dark:bg-black/30 z-[-1] max-w-lg" />
                 )}
 
@@ -81,9 +79,8 @@ export const Resume = ({ resume }: Props) => {
                       <p className="text-base text-muted-foreground font-semibold">
                         {item.institution}
                       </p>
-                      <p className="text-base text-muted-foreground font-semibold">{item.startYear} -  {item.endYear}</p>
-                      <p className="text-base text-primary font-medium">{item.cgpa === 0 ? "Ongoing" : item.cgpa}</p>
-                      <p className="text-base text-muted-foreground">{item.desc}</p>
+                      <p className="text-base text-muted-foreground font-semibold">{item.graduationYear}</p>
+                   
                     </CardContent>
                   </Card>
                 </div>
@@ -95,7 +92,7 @@ export const Resume = ({ resume }: Props) => {
         {/* === Experience Tab === */}
         <TabsContent value="experience" className="py-8 lg:px-14">
           <div className="relative border-l-4 border-neutral-300 dark:border-black/30 ml-4 pl-4">
-            {experience.map((item, index) => (
+            {EXPERIENCE.map((item, index) => (
               <motion.div
                 key={index}
                 className="relative mb-10 group"
@@ -103,7 +100,7 @@ export const Resume = ({ resume }: Props) => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: index * 0.4, ease: "easeIn" }}
               >
-                {index !== experience.length && (
+                {index !== EXPERIENCE.length && (
                   <span className="absolute left-[-2px] top-6 h-1 w-full max-w-lg bg-neutral-300 dark:bg-black/30 z-[-1]" />
                 )}
 
@@ -124,15 +121,9 @@ export const Resume = ({ resume }: Props) => {
                   >
                     <CardContent className="space-y-2">
                       <h3 className="text-xl font-bold dark:text-gray-300">
-                        {item.profession} at <span className="text-primary">{item.company}</span>
+                        {item.skill} at <span className="text-primary">{item.componay}</span>
                       </h3>
-                      <p className="text-base font-semibold text-primary">
-                  Technologies:{" "}
-                  <span className="font-medium ml-1 text-muted-foreground">
-                    {item.technology.join(", ")}
-                  </span>
-                </p>
-                      <p className="text-base text-muted-foreground">{item.desc}</p>
+             
                     </CardContent>
                   </Card>
                 </div>

@@ -4,7 +4,6 @@ const nextConfig: NextConfig = {
   images: {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    domains: [process.env.DATABASE_DOMAIN_NAME!],
   },
 
   experimental: {

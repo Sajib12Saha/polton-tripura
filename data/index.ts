@@ -222,3 +222,33 @@ export const BLOGS = [
     date: randomDate(new Date(2023, 0, 1), new Date())
   }
 ];
+
+
+export const SKILLS = [
+"Server Side Tracking", 
+"Google Tag Manager",
+"Google ads Tracking",
+"GA4 e-commerce tracking", 
+"Google analytics",
+] 
+
+export const EXPERIENCE = [
+  {
+    componay:"Panaconchal", skill:"social manager"
+  },
+    {
+    componay:"Web analytics bd", skill:"Tracking manager"
+  },
+    {
+    componay:"Skilluper", skill:"Ga4 manager"
+  },
+]
+
+export const EDUCATION = [
+  {
+    institution: "Dhaka University",
+    degree: "Master of Business Administration (MBA)",
+    level: "Master",
+    graduationYear: 2021,
+  },
+]
