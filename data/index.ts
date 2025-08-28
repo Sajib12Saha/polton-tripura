@@ -130,25 +130,32 @@ export const SERVICES = [
   },
 ];
 
-export const PORTFOLIO = [
-  "portfolio/GA1.png",
-  "portfolio/GA2.png",
-  "portfolio/GA3.png",
-  "portfolio/GA4.png",
-  "/portfolio/2.png",
-   "/portfolio/3.png",
-    "/portfolio/4.png",
-     "/portfolio/5.png",
-     "/portfolio/6.png",
-     "/portfolio/7.png",
-     "/portfolio/8.png",
-     "/portfolio/9.png",
-     "/portfolio/10.png",
-     "/portfolio/11.png",
-     "/portfolio/12.png",
-     "/portfolio/13.png",
 
-]
+export type PortfolioType = {
+  imgUrl: string;
+  desc?: string;
+};
+
+export const PORTFOLIO: PortfolioType[] = [
+  { imgUrl: "portfolio/GA1.png", desc: "  Real-time user monitoring and traffic source analysis with GA4 dashboard helps track live visitors, understand behavior, and optimize marketing performance instantly." },
+  { imgUrl: "portfolio/GA2.png", desc: "Google Ads purchase tracking helps measure conversions accurately, showing which ads drive sales, reducing wasted spend, and improving ROI through data-driven optimization." },
+  { imgUrl: "portfolio/GA3.png", desc: "  GA4 real-time analytics tracks user activity and geo-location, helping to understand visitors better and improve marketing strategies effectively." },
+  { imgUrl: "portfolio/GA4.png", desc: "Google Ads advanced custom conversion tracking setup helps measure calls and ad interactions, providing deeper insights to optimize campaigns and improve return on investment." },
+
+  { imgUrl: "/portfolio/2.png" },
+  { imgUrl: "/portfolio/3.png" },
+  { imgUrl: "/portfolio/4.png" },
+  { imgUrl: "/portfolio/5.png" },
+  { imgUrl: "/portfolio/6.png" },
+  { imgUrl: "/portfolio/7.png" },
+  { imgUrl: "/portfolio/8.png" },
+  { imgUrl: "/portfolio/9.png" },
+  { imgUrl: "/portfolio/10.png" },
+  { imgUrl: "/portfolio/11.png" },
+  { imgUrl: "/portfolio/12.png" },
+  { imgUrl: "/portfolio/13.png" },
+];
+
 
 export const CERTIFICATES = [
   "/certificate/cer1.png",

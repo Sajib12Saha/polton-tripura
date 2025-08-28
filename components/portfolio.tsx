@@ -3,9 +3,10 @@ import { PortfolioCard } from "./portfolio-card"
 import { Button } from "./ui/button"
 import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
+import { PortfolioType } from "@/data"
 
 interface Props {
-    portfolios:string[]
+    portfolios:PortfolioType[]
 }
 
 export const Portfolio = ({portfolios}:Props) =>{
