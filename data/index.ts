@@ -131,6 +131,10 @@ export const SERVICES = [
 ];
 
 export const PORTFOLIO = [
+  "portfolio/GA1.png",
+  "portfolio/GA2.png",
+  "portfolio/GA3.png",
+  "portfolio/GA4.png",
   "/portfolio/2.png",
    "/portfolio/3.png",
     "/portfolio/4.png",
