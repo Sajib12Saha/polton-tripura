@@ -26,7 +26,7 @@ export const Portfolio = ({portfolios}:Props) =>{
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {portfolios.slice(0,3).map((project, index)=>(
+        {portfolios.slice(0,6).map((project, index)=>(
                   <motion.div
             key={index}
              initial={{opacity:0, y: 100}}
@@ -36,7 +36,7 @@ export const Portfolio = ({portfolios}:Props) =>{
            </motion.div>
         ))}
         </div>
-        {portfolios.length > 3 && (
+        {portfolios.length > 6 && (
             <div className="flex items-center justify-center w-full">
                 <Button className="hover:bg-primary hover:text-white transition-all duration-100 px-10" onClick={()=> router.push('/portfolio')}>
                 See All
