@@ -9,12 +9,13 @@ export const NAV_ITEMS: NAV_ITEMS_PROPS[] = [
     {
       label: "HOME", href: "/"
     },
+      {
+      label: "PORTFOLIO", href: "/portfolio"
+    },
     {
       label: "SERVICES", href: "/#services"
     },
-    {
-      label: "PORTFOLIO", href: "/portfolio"
-    },
+  
     {
       label: "SKILLS", href: "/#skills"
     },
