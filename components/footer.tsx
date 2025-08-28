@@ -20,7 +20,7 @@ export const Footer = () => {
           <ul className="space-y-3 text-base font-medium">
             <li className="flex items-center gap-3 text-muted-foreground hover:text-primary hover:underline">
               <Phone className="w-4 h-4 text-primary" />
-              <a href={`tel:01608731422`}>01608731422</a>
+              <a href={`tel:+8801608731422`}>+8801608731422</a>
             </li>
             <li className="flex items-center gap-3 text-muted-foreground hover:text-primary hover:underline">
               <Mail className="w-4 h-4 text-primary" />

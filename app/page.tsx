@@ -27,16 +27,15 @@ export default async function  Home () {
   </>
 
 
+
   <>
-   <Services services={SERVICES}/>
+   <Portfolio portfolios={PORTFOLIO}/>
   <Separator/>
   </>
 
 
-
-
   <>
-   <Portfolio portfolios={PORTFOLIO}/>
+   <Services services={SERVICES}/>
   <Separator/>
   </>
 
