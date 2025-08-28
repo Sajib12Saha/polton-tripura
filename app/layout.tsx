@@ -31,7 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: "Paltan Joy Tripura",
       images: [
         {
-          url: "/palton.png", // relative path or absolute URL
+          url: "/paltan.jpeg", // relative path or absolute URL
           width: 1200,
           height: 630,
           alt: `Paltan Joy Tripura Portfolio`,
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title: "Paltan Joy Tripura",
       description: `Portfolio website powered by Paltan Joy Tripura`,
-      images: ["/palton.png"], // relative path or absolute URL
+      images: ["/paltan.jpeg"], // relative path or absolute URL
       site: "@your_twitter_handle",
       creator: "@your_twitter_handle",
     },

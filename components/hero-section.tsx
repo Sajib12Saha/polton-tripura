@@ -25,9 +25,9 @@ className="order-2 md:order-1 lg:col-span-7 space-y-6"
       <h3 className="text-4xl sm:text-5xl font-bold dark:text-gray-300"  
         
       >  
-        Hi, I'm <span className="text-primary"> Paltan Joy Tripura</span>  
+        Hi, I'm <span className="text-primary"> Paltanjoy!</span>  
         <br />  
-        a Web Analytics
+        a Web Analytics Specialist
       </h3>  
 
       <motion.p className="text-lg md:text-xl text-muted-foreground font-semibold"  
@@ -35,10 +35,10 @@ className="order-2 md:order-1 lg:col-span-7 space-y-6"
         whileInView={{opacity:1, x: 0}}  
         transition={{duration:1, delay:0.4, ease:"easeIn"}}  
       >  
-   Hi, I’m Paltanjoy! I’m a Web Analytics and Tracking Specialist helping businesses optimize their online presence. With tools like Google Analytics (GA4), Google Tag Manager, Meta Pixel & Facebook CAPI, Server-Side Tracking, and Google Ads Conversion Tracking, I make sure your campaigns are data-driven, cost-effective, and result-oriented.
-I also set up Lead & Contact Form Tracking, TikTok, Twitter, Pinterest Pixels, and for e-commerce, I configured Dynamic Product Catalogs and Enhanced Ecommerce Event Tracking (Cart, Checkout, Purchase, etc.) so you can track every customer action.
-My mission is simple: deliver accurate data, reduce wasted ad spend, and maximize your ROI. I’ve helped many clients achieve better results through smart tracking—and I’d love to help your business grow too.
-💬 Want to improve your performance and scale faster? Send me a quick message today!
+  Through data-driven tracking and smart optimization, I help businesses become more intelligent, profitable, and growth-focused. My mission is to provide you with accurate and actionable data, so you can make decisions based on facts, not guesswork.With a proper tracking system in place, you can identify your most valuable customers, target the right audience with precision, and re-engage past visitors. This not only reduces unnecessary ad spend but also significantly boosts conversions and ROI.I make sure that every dollar you invest in advertising works harder for your business. As a result, your campaigns deliver measurable growth, stronger performance, and long-term success. In today’s highly competitive market, running ads is not enough. Real success comes from the combination of accurate tracking, reliable data, and effective optimization.<br/><br/>
+  
+I work with powerful tools like Google Analytics (GA4), Google Tag Manager, Meta Pixel & Facebook CAPI, Server-Side Tracking, and Google Ads Conversion Tracking to ensure your campaigns are cost-effective and result-oriented.
+
 
       </motion.p>  
     </div>  
